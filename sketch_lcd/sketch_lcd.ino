@@ -9,6 +9,8 @@ int lastMinute = -1;
 char outputChar = 'A';
 
 TKLCD_Local lcd = TKLCD_Local();
+TKButton button(A0); 
+
 void setup() {
   setTime(15,0,0,21,9,2013);
   lcd.begin();
@@ -25,8 +27,15 @@ void loop() {
     lcd.setCursor(0,0);
     lcd.print(msg);
     lcd.setCursor(0,1);
-    lcd.print("to xxx-xxx-xxxx");
+    lcd.print("to XXX-XXX-XXXX");
     lastMinute = minute();
+  }
+  if (button.read() == HIGH) {
+    lcd.display();
+    lcd.setBrightness(255);
+  } else {
+    lcd.noDisplay();
+    lcd.setBrightness(0);
   }
 }
 
