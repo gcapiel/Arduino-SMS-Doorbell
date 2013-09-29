@@ -25,6 +25,7 @@ while true do
       sleep(3)
       puts Net::HTTP.get(URI.parse("http://192.168.1.147/sonosplay.php?file=you_rang"))
       sleep(7)
+      puts Net::HTTP.get(URI.parse("http://192.168.1.147/clear_queue.php"))
       puts Net::HTTP.get(URI.parse("http://192.168.1.147/receiver_off.php"))
 
       #system('say "holy guacamole someones at the door"')
